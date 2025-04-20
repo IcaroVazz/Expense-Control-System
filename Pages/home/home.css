@@ -1,30 +1,29 @@
-/* Fundo geral */
 body {
-  background-color: #121212; /* fundo escuro */
+  background-color: #DBDEE7;
   color: white;
   margin: 0;
   font-family: Arial, sans-serif;
+  scroll-behavior: smooth;
 }
 
-/* Header transparente */
 header {
   background-color: transparent;
   padding: 20px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 30px;
 }
 
-/* Imagem do logo */
 header img {
-  height: 50px;
+  height: 120px;
+  width: auto;
 }
 
-/* Navegação com flex */
 nav {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
 }
 
 nav ul {
@@ -37,7 +36,7 @@ nav ul {
 
 nav ul li a {
   text-decoration: none;
-  color: white;
+  color: #000;
   background-color: transparent;
   padding: 10px 15px;
   transition: background-color 0.3s;
@@ -48,72 +47,78 @@ nav ul li a:hover {
   border-radius: 5px;
 }
 
-/* Botão de logout */
-.nav-button {
-  background-color: transparent;
-  border: 1px solid white;
-  color: white;
-  padding: 10px 15px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: background-color 0.3s;
+header nav ul li a .Home,
+header nav ul li a .About,
+header nav ul li a .Catalog,
+header nav ul li a .Contact,
+header nav ul li a .Login {
+  margin-right: 80px;
+  margin-left: 40px;
 }
 
-.nav-button:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-}
-
-/* Centralização do conteúdo principal com layout lado a lado */
 main {
-  height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
-  padding: 0 100px;
+}
+
+section {
+  width: 100%;
+  padding: 100px 100px;
+  box-sizing: border-box;
 }
 
 section.Home {
+  height: 100vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
 }
 
-/* Texto à esquerda */
 .text-content {
-  max-width: 50%;
+  max-width: 90%;
+  margin-bottom: 180px;
   text-align: left;
 }
 
-/* Títulos com estilo */
 .Home h1 {
   font-size: 2.5rem;
   margin-bottom: 10px;
+  color: #000;
 }
 
 .Home h2 {
   font-size: 1.5rem;
   margin-bottom: 30px;
-}
-
-/* Botão chamativo */
-.cta-button {
-  padding: 12px 24px;
-  border: 2px solid #00ffff;
-  background-color: transparent;
-  color: #00ffff;
-  font-size: 1rem;
-  cursor: pointer;
-  border-radius: 8px;
-  transition: all 0.3s;
-}
-
-.cta-button:hover {
-  background-color: #00ffff;
   color: #000;
 }
 
-/* Animação de digitação */
+.cta-button,
+.ctb-button,
+.submit-button {
+  padding: 12px 24px;
+  border: 2px solid black;
+  background-color: transparent;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 50px;
+}
+
+.ctb-button {
+  margin-left: 60px;
+}
+
+.cta-button:hover,
+.ctb-button:hover,
+.submit-button:hover {
+  background-color: #00ffff;
+  color: #000;
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 255, 255, 0.4);
+}
+
 .typing {
   border-right: 2px solid #00ffff;
   white-space: nowrap;
@@ -123,17 +128,254 @@ section.Home {
 }
 
 @keyframes blink {
-  50% { border-color: transparent; }
+  50% {
+    border-color: transparent;
+  }
 }
 
-/* Imagem à direita */
 .image-content {
-  max-width: 50%;
+  max-width: 70%;
   display: flex;
   justify-content: flex-end;
 }
 
 .image-content img {
+  max-width: 90%;
+  height: auto;
+  margin-bottom: 190px;
+}
+
+.img-logo {
+  height: 120px;
+  width: auto;
+}
+
+.About {
+  background-color: #C2C6D2;
+  color: #000;
+  text-align: center;
+}
+
+.about-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.about-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.about-container p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+}
+
+.about-image {
+  width: 60%;
+  height: auto;
+  margin-top: 40px;
+  border-radius: 20px;
+}
+
+.Catalog {
+  background-color: #B2B5C4;
+  color: #000;
+  text-align: center;
+}
+
+.catalog-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.catalog-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.product-grid {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.product-card {
+  background-color: white;
+  color: #000;
+  border-radius: 15px;
+  padding: 20px;
+  width: 250px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s;
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-card:hover {
+  transform: scale(1.05);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.product-card h3 {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.product-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.Contact {
+  background-color: #9CA0B1;
+  color: #000;
+  text-align: center;
+}
+
+.contact-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.contact-container h2 {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: stretch;
+}
+
+.contact-form label {
+  font-weight: bold;
+  text-align: left;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  height: 120px;
+}
+
+/* Carrossel */
+.carousel-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 50px auto;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 2px 0 20px  white;
+}
+
+.carousel-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.carousel-images img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  display: none;
+  transition: opacity 0.5s ease-in-out;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  font-size: 24px;
+  z-index: 10;
+  transition: background-color 0.3s;
+}
+
+.carousel button:hover {
+  background-color: rgba(0, 255, 255, 0.6);
+}
+
+.carousel .prev {
+  left: 10px;
+}
+
+.carousel .next {
+  right: 10px;
+}
+
+.smart-device,
+.paragraph {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.smart-device img,
+.paragraph img {
   max-width: 100%;
   height: auto;
+  margin-bottom: 20px;
+}
+
+.smart-device h3,
+.paragraph h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.smart-device p,
+.paragraph p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+html{
+  scroll-behavior: smooth;
 }

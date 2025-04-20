@@ -111,3 +111,4 @@ function hideError() {
     errorDiv.style.display = 'none';
     errorDiv.innerText = '';
 }
+

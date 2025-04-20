@@ -5,3 +5,7 @@ function logout(){
         alert("Erro ao fazer logout")
     })
 }
+
+function AlterPage(){
+     window.location.href = "../../index.html"
+}

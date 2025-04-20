@@ -9,36 +9,130 @@
 <body>
 
   <header>
-    <img src="../../loading.js" alt="Img-logo" />
+    <img src="../../Logo-project-ic-faleta.png" alt="Img-logo" class="Img-logo" />
     <nav>
       <ul>
-        <li><a href="home.html" class="Home">Home</a></li>
-        <li><a href="home.html" class="About">About Us</a></li>
-        <li><a href="home.html" class="Catalog">Catalog</a></li>
-        <li><a href="home.html" class="Contact">Contact Us</a></li>
-        <li><a href="home.html" class="login">Login</a></li>
+        <li><a href="#home" class="Home">Home</a></li>
+        <li><a href="#about" class="About">About Us</a></li>
+        <li><a href="#catalog" class="Catalog">Catalog</a></li>
+        <li><a href="#contact" class="Contact">Contact Us</a></li>
+        <li><a href="../../index.html" class="login">Login</a></li>
       </ul>
-      <button onclick="logout()" class="nav-button">Logout</button>
     </nav>
   </header>
 
-  <main>
-    <section class="Home">
+  <main>         
+    <!-- Existing Home Section -->
+    <section class="Home" id="home">
       <div class="text-content">
         <h1><span class="typing" id="typing-h1"></span></h1>
         <h2><span class="typing" id="typing-h2"></span></h2>
-        <button type="button" class="cta-button">FIND OUT MORE</button>
+        <a href="#about"><button type="button" class="cta-button">FIND OUT MORE</button></a>
+        <a href="#catalog"><button type="button" class="ctb-button">SEE OUR CATALOG</button></a>
       </div>
 
       <div class="image-content">
-        <img src="../../galaxy-s25-ultra-features-sustainability-mo-removebg-preview.png" alt="Imagem de referência" />
+        <img src="https://png.monster/wp-content/uploads/2023/09/PNG.monsteriphone-15-plus-pro-pro-max-gray-black%20png.png" alt="Imagem de referência" />
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="About" id="about">
+      <div class="about-container">
+        <h2>About Us</h2>
+        <p>
+          Nós somos apaixonados por inovação e tecnologia de ponta. No MyControl, buscamos ser os líderes de mercado, oferecendo a melhor experiência para quem busca produtos Apple. Nosso objetivo é proporcionar um controle total sobre seus dispositivos, com soluções que garantem praticidade, eficiência e um toque futurista, tornando seu dia a dia mais inteligente. Com o MyControl, você não apenas adquire tecnologia de última geração, mas também entra em um novo patamar de qualidade e inovação no universo Apple.
+        </p>
+        <img src="../../jovens-do-grupo-na-paisagem_24877-57698-removebg-preview.png" alt="Equipe MyControl" class="about-image" />
+      </div>
+    </section>
+
+    <!-- Catalog Section -->
+    <section class="Catalog" id="catalog">
+      <div class="catalog-container">
+        <h2>Our Catalog</h2>
+
+        <!-- Carrossel -->
+        <div class="carousel">
+          <div class="carousel-images">
+            <img src="https://www.freeiconspng.com/uploads/apple-brand-macbook-photo-20.png" alt="MacBook Pro">
+            <img src="https://leoscherer.com.br/wp-content/uploads/2021/12/AirPods-Pro.png" alt="AirPods">
+            <img src="https://www.pngarts.com/files/8/Apple-Watch-PNG-Download-Image.png" alt="Apple Watch">
+            <img src="https://www.imagineonline.store/cdn/shop/files/iphone-15-pro-clear-case-with-magsafe_MT223.png?v=1694641913" alt="Iphone 14">
+            <img src="https://www.iphonesolution.com.br/wp-content/uploads/2024/04/15-PRO-MAX.png" alt="Iphone 15">
+            <img src="https://png.monster/wp-content/uploads/2023/09/PNG.monsterapple-iphone-15-pro-photo%20png.png" alt="Iphone 15 Pro">
+          </div>
+          <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+          <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+
+        <div class="product-grid">
+          <!-- Card 1 -->
+          <div class="product-card">
+            <img src="https://www.freeiconspng.com/uploads/apple-brand-macbook-photo-20.png" alt="MacBook Pro">
+            <h3>MacBook Pro</h3>
+            <p>Design elegante e poderoso, com desempenho incomparável para profissionais exigentes. O MacBook Pro combina tecnologia de ponta, gráficos excepcionais e autonomia prolongada, proporcionando uma experiência única e eficiente.</p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="product-card">
+            <img src="https://leoscherer.com.br/wp-content/uploads/2021/12/AirPods-Pro.png" alt="AirPods">
+            <h3>AirPods</h3>
+            <p>Qualidade de áudio impecável, integração perfeita com dispositivos Apple e conforto para o seu dia a dia. Os AirPods oferecem uma experiência sonora imersiva com comandos por voz e conectividade sem esforço.</p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="product-card">
+            <img src="https://www.pngarts.com/files/8/Apple-Watch-PNG-Download-Image.png" alt="Apple Watch">
+            <h3>Apple Watch</h3>
+            <p>Design sofisticado e recursos avançados para monitoramento de saúde, fitness e conectividade. O Apple Watch é a combinação perfeita de estilo e funcionalidade, mantendo você conectado e no controle a qualquer momento.</p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="product-card">
+            <img src="https://www.imagineonline.store/cdn/shop/files/iphone-15-pro-clear-case-with-magsafe_MT223.png?v=1694641913" alt="Product 4">
+            <h3>Iphone 14</h3>
+            <p>O iPhone 14 traz o chip A16 Bionic, oferecendo desempenho excepcional. Sua tela Super Retina XDR de 6,1 polegadas com ProMotion de 120Hz proporciona uma visualização suave e vibrante. A câmera tripla com sensores aprimorados captura imagens nítidas, mesmo em baixa luz</p>
+          </div>
+
+          <div class="product-card">
+            <img src="https://www.iphonesolution.com.br/wp-content/uploads/2024/04/15-PRO-MAX.png" alt="Product 5">
+            <h3>Iphone 15</h3>
+            <p>Com um design em titânio, o iPhone 15 é mais leve e resistente. A tela OLED Dynamic Island e a câmera de 48 MP com zoom ótico de 3x oferecem uma experiência visual e fotográfica impressionante. </p>
+          </div>
+
+          <div class="product-card">
+            <img src="https://png.monster/wp-content/uploads/2023/09/PNG.monsterapple-iphone-15-pro-photo%20png.png" alt="Product 6">
+            <h3>Iphone 15 Pro</h3>
+            <p>O iPhone 15 Pro apresenta uma tela OLED ProMotion de 120Hz com brilho de até 2000 nits. A câmera com lente periscópica de 10x de zoom oferece fotos distantes com clareza. </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="Contact" id="contact">
+      <div class="contact-container">
+        <h2>Contact Us</h2>
+        <form class="contact-form">
+          <label for="name">Name:</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="message">Your Message:</label>
+          <textarea id="message" name="message" required></textarea>
+
+          <button type="submit" class="submit-button">SEND MESSAGE</button>
+        </form>
       </div>
     </section>
   </main>
 
   <script>
-    const h1Text = "Tecnologia de ponta em cada toque";
-    const h2Text = "O Futuro Está em Suas Mãos";
+    const h1Text = "Cutting-edge technology at every touch";
+    const h2Text = "The Future Is In Your Hands";
 
     function typeEffect(elementId, text, delay = 100, callback) {
       const element = document.getElementById(elementId);
@@ -71,6 +165,33 @@
     }
 
     loopTyping();
+
+    let slideIndex = 0;
+
+    function showSlides() {
+      const slides = document.querySelectorAll('.carousel-images img');
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+      slideIndex++;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      slides[slideIndex - 1].style.display = 'block';
+      setTimeout(showSlides, 3000);
+    }
+
+    function moveSlide(n) {
+      const slides = document.querySelectorAll('.carousel-images img');
+      slideIndex += n;
+      if (slideIndex > slides.length) { slideIndex = 1; }
+      if (slideIndex < 1) { slideIndex = slides.length; }
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+      slides[slideIndex - 1].style.display = 'block';
+    }
+
+    showSlides(); // Call the function to initiate auto-slide
   </script>
+
 </body>
 </html>
