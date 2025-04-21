@@ -4,17 +4,11 @@ const form = {
   emailInvalid: () => document.getElementById('email-invalid'),
   password: () => document.getElementById('password'),
   passwordError: () => document.getElementById('password-error'),
-  recoveryPassword: () => document.getElementById('recovery-password-btn'),
   loginButton: () => document.getElementById('login-button'),
+  googleLoginButton: () => document.querySelector('.google-login-button'),
 };
 
-// Verificar o estado de autenticação assim que a página for carregada
-firebase.auth().onAuthStateChanged(user => {
-  if (user) {
-    // Se o usuário estiver autenticado, redireciona para a página inicial
-    window.location.href = "pages/home/home.html";
-  }
-});
+form.googleLoginButton().addEventListener('click', loginWithGoogle);
 
 function onChangeEmail() {
   toggleButtonsDisable();
@@ -45,18 +39,24 @@ function toggleEmailErrors() {
   const emailError = form.emailError();
   const emailInvalid = form.emailInvalid();
 
-  !email
-    ? (emailError.style.display = 'block', emailInvalid.style.display = 'none')
-    : !validateEmail(email)
-    ? (emailError.style.display = 'none', emailInvalid.style.display = 'block')
-    : (emailError.style.display = 'none', emailInvalid.style.display = 'none');
+  // Lógica de exibição de erro
+  if (!email) {
+    emailError.style.display = 'block'; // Exibe "Email obrigatório"
+    emailInvalid.style.display = 'none'; // Esconde o "Email inválido"
+  } else if (!validateEmail(email)) {
+    emailError.style.display = 'none'; // Esconde "Email obrigatório"
+    emailInvalid.style.display = 'block'; // Exibe "Email inválido"
+  } else {
+    emailError.style.display = 'none'; // Esconde "Email obrigatório"
+    emailInvalid.style.display = 'none'; // Esconde "Email inválido"
+  }
 }
 
 function togglePasswordErrors() {
   const password = form.password().value.trim();
   const passwordError = form.passwordError();
 
-  passwordError.style.display = password ? 'none' : 'block';
+  passwordError.style.display = password ? 'none' : 'block'; // Exibe erro se senha estiver vazia
 }
 
 function toggleButtonsDisable() {
@@ -64,7 +64,6 @@ function toggleButtonsDisable() {
   const passwordValid = isPasswordValid();
 
   form.loginButton().disabled = !(emailValid && passwordValid);
-  form.recoveryPassword().disabled = !emailValid;
 }
 
 function login() {
@@ -76,8 +75,23 @@ function login() {
     })
     .catch(error => {
       HideLoading();
-      alert(error.code);
+      alert(getErrorMensage(error));
       console.error("Erro ao fazer login", error);
+    });
+}
+
+function loginWithGoogle() {
+  const provider = new firebase.auth.GoogleAuthProvider();
+
+  firebase.auth().signInWithPopup(provider)
+    .then(result => {
+      const user = result.user;
+      console.log('Usuário logado com o Google:', user);
+      window.location.href = "pages/home/home.html";
+    })
+    .catch(error => {
+      alert("Erro ao fazer login com o Google: " + error.message);
+      console.error("Erro ao fazer login com o Google:", error);
     });
 }
 
@@ -93,30 +107,4 @@ function register() {
   setTimeout(() => {
     window.location.href = "pages/register/register.html";
   }, 1000);
-}
-
-function RecoveryPassword() {
-  const email = form.email().value.trim();
-
-  if (!email) {
-    alert("Por favor, preencha o campo de e-mail.");
-    return;
-  }
-
-  if (!validateEmail(email)) {
-    alert("Digite um e-mail válido.");
-    return;
-  }
-
-  ShowLoading();
-  firebase.auth().sendPasswordResetEmail(email)
-    .then(() => {
-      HideLoading();
-      alert("Email enviado com sucesso!");
-    })
-    .catch(error => {
-      HideLoading();
-      alert(getErrorMensage(error));
-      console.error("Erro ao enviar e-mail de recuperação:", error);
-    });
 }

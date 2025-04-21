@@ -51,7 +51,8 @@ header nav ul li a .Home,
 header nav ul li a .About,
 header nav ul li a .Catalog,
 header nav ul li a .Contact,
-header nav ul li a .Login {
+header nav ul li a .Login 
+header nav ul li a .logout{
   margin-right: 80px;
   margin-left: 40px;
 }

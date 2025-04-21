@@ -4,66 +4,57 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="index.css" />
-  <link rel="stylesheet" href="global.css">
   <title>Login</title>
 </head>
 <body>
-  <div class="container">
-    <div class="card">
-      <form>
-        <h1>Login</h1>
-  
-        <div class="form-field">
-          <label for="email">Email</label><br>
-          <input 
-            type="email" 
-            name="email" 
-            id="email" 
-            placeholder="Digite seu e-mail" 
-            required 
-            oninput="onChangeEmail()">
-          <div class="error" id="email-error">Email obrigatório</div>
-          <div class="error" id="email-invalid">Email inválido</div>
-        </div>
-  
-        <div class="form-field">
-          <label for="password">Senha</label><br>
-          <input 
-            type="password" 
-            name="password" 
-            id="password" 
-            placeholder="Digite a sua senha" 
-            required 
-            oninput="onChangePassword()">
-          <div class="error" id="password-error">Senha obrigatória</div>
-        </div>
-  
-        <div>
-          <button 
-          type="button" 
-          class="Clear" 
-          id="recovery-password-btn" 
-          onclick="RecoveryPassword()" 
-          disabled>
-          Recuperar Senha
-        </button>
-        
-        </div>
-  
-        <div>
-          <button type="button" id="login-button" class="Solid" disabled onclick="login()">
-            Entrar
-          </button>
-        </div>
-  
-        <div>
-          <button type="button" class="outline" onclick="register()">Registrar</button>
-        </div>
-        
-      </form>
+  <div class="form-container">
+    <p class="title">Welcome Back</p>
+    <form class="form">
+      <input 
+        type="email" 
+        class="input" 
+        id="email" 
+        placeholder="Email" 
+        required 
+        oninput="onChangeEmail()"
+      />
+      <div class="error" id="email-error">Email obrigatório</div>
+      <div class="error" id="email-invalid">Email inválido</div>
+
+      <input 
+        type="password" 
+        class="input" 
+        id="password" 
+        placeholder="Senha" 
+        required 
+        oninput="onChangePassword()"
+      />
+      <div class="error" id="password-error">Senha obrigatória</div>
+
+      <p class="page-link">
+        <span class="page-link-label" onclick="RecoveryPassword()">forgot password?</span>
+      </p>
+
+      <button type="button" class="form-btn" id="login-button" onclick="login()" disabled>Entrar</button>
+    </form>
+
+    <p class="sign-up-label">
+      Don't have an account?<span class="sign-up-link" onclick="register()"> Register</span>
+    </p>
+
+    <div class="buttons-container">
+      <div class="login-button apple-login-button">
+        <img class="icon" src="https://images.icon-icons.com/4048/PNG/512/facebook_logo_icon_257007.png" alt="Facebook" />
+        <span>Login with Facebook</span>
+      </div>
+      <div class="login-button google-login-button">
+        <img class="icon" src="https://img.icons8.com/?size=512&id=17949&format=png" alt="Google" />
+        <span>Login with Google</span>
+      </div>
     </div>
   </div>
 
+  <!-- Scripts -->
   <script src="index.js"></script>
   <script src="Validations.js"></script>
   <script src="https://www.gstatic.com/firebasejs/11.6.0/firebase-app-compat.js"></script>

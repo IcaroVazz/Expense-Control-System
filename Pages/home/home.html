@@ -17,6 +17,7 @@
         <li><a href="#catalog" class="Catalog">Catalog</a></li>
         <li><a href="#contact" class="Contact">Contact Us</a></li>
         <li><a href="../../index.html" class="login">Login</a></li>
+        <li><a href="../../index.html" class="logout">Logout</a></li>
       </ul>
     </nav>
   </header>
@@ -110,16 +111,15 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section class="Contact" id="contact">
       <div class="contact-container">
         <h2>Contact Us</h2>
-        <form class="contact-form">
+        <form class="contact-form" name="contact-form">
           <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required>
+          <input type="text" id="name" name="from_name" required>
 
           <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
+          <input type="email" id="email" name="reply_to" required>
 
           <label for="message">Your Message:</label>
           <textarea id="message" name="message" required></textarea>
@@ -129,6 +129,8 @@
       </div>
     </section>
   </main>
+
+  <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
   <script>
     const h1Text = "Cutting-edge technology at every touch";
@@ -191,6 +193,21 @@
     }
 
     showSlides(); // Call the function to initiate auto-slide
+
+    emailjs.init("40obRFI74Uhy2y3Tr");
+
+    document.querySelector(".contact-form").addEventListener("submit", function(e) {
+    e.preventDefault();
+    emailjs.sendForm("service_7iofbe8", "template_7d7diot", this)
+      .then(function() {
+      alert("Mensagem enviada com sucesso!");
+    document.querySelector(".contact-form").reset();
+    }, function(error) {
+      alert("Erro ao enviar. Tente novamente.");
+      console.error("Erro:", error);
+    });
+});
+    
   </script>
 
 </body>
