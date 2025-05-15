@@ -1,0 +1,101 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  
+  body {
+    background: rgb(45, 211, 111);
+    margin: 0;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  form {
+    width: 300px;
+  }
+  
+  h1 {
+    color: white;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .form-field {
+    margin-bottom: 20px;
+  }
+  
+  input, button {
+    padding: 10px;
+    width: -webkit-fill-available;
+  }
+  
+  button {
+    cursor: pointer;
+    margin-bottom: 10px;
+    transition: 0.2s ease-in-out;
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  button[disabled] {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  /* Estilo do botão 'Recuperar Senha' */
+  .Clear {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+  }
+  
+  /* Quando estiver ativo */
+  button.Clear:not([disabled]) {
+    background-color: white;
+    color: black;
+  }
+  
+  .Solid {
+    background: white;
+    border: none;
+    color: black;
+  }
+  
+  .outline {
+    background: transparent;
+    border: 1px solid white;
+    color: white;
+  }
+  
+  .error {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    margin-top: 5px;
+    display: none;
+  }
+  
+  .loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    z-index: 9999;
+  }
+  
