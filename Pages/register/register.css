@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body.centralize {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #001f3f, #000);
+}
+
+/* Fundo animado futurista */
+body.centralize::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(0, 255, 255, 0.05),
+        rgba(0, 255, 255, 0.05) 1px,
+        transparent 1px,
+        transparent 20px
+    );
+    animation: scan 30s linear infinite;
+    z-index: 0;
+}
+
+@keyframes scan {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+form {
+    width: 300px;
+    position: relative;
+    z-index: 1;
+}
+
+h1 {
+    color: #00ffff;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+    text-shadow: 0 0 10px #00ffff;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.form-field {
+    margin-bottom: 20px;
+}
+
+input, button {
+    padding: 10px;
+    width: -webkit-fill-available;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    background-color: #111;
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    border-radius: 6px;
+}
+
+input:focus, button:hover {
+    transform: scale(1.05);
+    background-color: #001f3f;
+}
+
+button {
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+/* Botão estilo sólido */
+button.solid {
+    background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+    color: #00ffff;
+    border: 1px solid #00ffff;
+    box-shadow:
+        0 0 15px rgba(0, 255, 255, 0.4),
+        0 0 30px rgba(0, 255, 255, 0.2);
+}
+
+/* Botão transparente */
+button.clear {
+    background-color: transparent;
+    color: #00ffff;
+    border: 1px solid #00ffff;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Mensagem de erro */
+.error {
+    background-color: red;
+    color: white;
+    padding: 5px;
+    margin-top: 5px;
+    display: none;
+}
+
+/* Tela de loading */
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 20px;
+    z-index: 9999;
+}
+
+.card {
+    background: linear-gradient(145deg, #0a0a0a, #1a1a1a);
+    border: 1px solid #00ffff;
+    box-shadow:
+        0 0 15px rgba(0, 255, 255, 0.4),
+        0 0 30px rgba(0, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 365px;
+    animation:  1s ease-out;
+    position: relative;
+    z-index: 1;
+}
+
+label{
+    display: none;
+}
+.error {
+    color: #ff4d4d;
+    margin-top: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+}
