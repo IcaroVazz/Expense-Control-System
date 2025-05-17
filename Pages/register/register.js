@@ -1,3 +1,12 @@
+window.onload = function () {
+    // Verificar o estado de autenticação assim que a página for carregada
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        window.location.href = "../home/home.html";
+      }
+    });
+  };
+  
 function onChangeEmail() {
     const email = form.email().value;
     form.emailRequiredError().style.display = email ? "none" : "block";
@@ -58,7 +67,6 @@ const form = {
 function BackLogin() {
     window.location.href = "../../index.html";
 }
-
 function register() {
     ShowLoading();
     hideError();

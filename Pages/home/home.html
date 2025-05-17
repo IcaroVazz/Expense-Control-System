@@ -3,12 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="index.css" />
-  <link rel="stylesheet" href="global.css">
-  <title>Login</title>
+  <link rel="stylesheet" href="home.css" />
+  <title>MyControl</title>
 </head>
 <body>
 
-    homepage
+  <header>
+    <img src="../../loading.js" alt="Img-logo" />
+    <nav>
+      <ul>
+        <li><a href="home.html" class="Home">Home</a></li>
+        <li><a href="home.html" class="About">About Us</a></li>
+        <li><a href="home.html" class="Catalog">Catalog</a></li>
+        <li><a href="home.html" class="Contact">Contact Us</a></li>
+        <li><a href="home.html" class="login">Login</a></li>
+      </ul>
+      <button onclick="logout()" class="nav-button">Logout</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="Home">
+      <div class="text-content">
+        <h1><span class="typing" id="typing-h1"></span></h1>
+        <h2><span class="typing" id="typing-h2"></span></h2>
+        <button type="button" class="cta-button">FIND OUT MORE</button>
+      </div>
+
+      <div class="image-content">
+        <img src="../../galaxy-s25-ultra-features-sustainability-mo-removebg-preview.png" alt="Imagem de referência" />
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const h1Text = "Tecnologia de ponta em cada toque";
+    const h2Text = "O Futuro Está em Suas Mãos";
+
+    function typeEffect(elementId, text, delay = 100, callback) {
+      const element = document.getElementById(elementId);
+      element.textContent = "";
+      let i = 0;
+
+      function type() {
+        if (i < text.length) {
+          element.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, delay);
+        } else if (callback) {
+          setTimeout(callback, 1000);
+        }
+      }
+
+      type();
+    }
+
+    function loopTyping() {
+      typeEffect("typing-h1", h1Text, 80, () => {
+        typeEffect("typing-h2", h2Text, 80, () => {
+          setTimeout(() => {
+            document.getElementById("typing-h1").textContent = "";
+            document.getElementById("typing-h2").textContent = "";
+            setTimeout(loopTyping, 1000);
+          }, 2000);
+        });
+      });
+    }
+
+    loopTyping();
+  </script>
 </body>
 </html>

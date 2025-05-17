@@ -4,9 +4,17 @@ const form = {
   emailInvalid: () => document.getElementById('email-invalid'),
   password: () => document.getElementById('password'),
   passwordError: () => document.getElementById('password-error'),
-  recoveryPassword: () => document.getElementById('recovery-password-btn'), // ✅ ID corrigido
+  recoveryPassword: () => document.getElementById('recovery-password-btn'),
   loginButton: () => document.getElementById('login-button'),
 };
+
+// Verificar o estado de autenticação assim que a página for carregada
+firebase.auth().onAuthStateChanged(user => {
+  if (user) {
+    // Se o usuário estiver autenticado, redireciona para a página inicial
+    window.location.href = "pages/home/home.html";
+  }
+});
 
 function onChangeEmail() {
   toggleButtonsDisable();
@@ -56,7 +64,7 @@ function toggleButtonsDisable() {
   const passwordValid = isPasswordValid();
 
   form.loginButton().disabled = !(emailValid && passwordValid);
-  form.recoveryPassword().disabled = !emailValid; // ✅ Habilita quando e-mail é válido
+  form.recoveryPassword().disabled = !emailValid;
 }
 
 function login() {
